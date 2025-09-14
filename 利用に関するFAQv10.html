@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ご利用に関するFAQ（公式）｜しもごおり山の手保育園</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+/* ===== Theme (colors, spacing, radius) ===== */
+:root{
+  --brand-green:#009844;        
+  --brand-yellow:#ffd93b;       
+  --brand-pink:#f14a1a;         
+  --brand-muted:#555555;        
+
+  --text:#222;                  
+  --text-weak:#666;             
+  --surface:#ffffff;            
+  --surface-alt:#f7f9fb;        
+  --line:#e6eef5;               
+
+  --chip-bg:#eefbe5;            
+  --chip-ink:#134e2a;           
+  --chip-pink-bg:#ffeceb;       
+
+  --shadow:0 3px 8px rgba(0,0,0,.05);
+
+  --radius-sm:10px;
+  --radius:14px;
+  --radius-lg:18px;
+
+  --space-1:6px;
+  --space-2:10px;
+  --space-3:14px;
+  --space-4:18px;
+  --space-5:24px;
+  --space-6:32px;
+  --space-7:40px;
+}
+
+/* ===== Base ===== */
+html{scroll-behavior:smooth}
+body{
+  font-family: "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+  color:var(--text);
+  background:linear-gradient(180deg, #fff 0%, var(--surface-alt) 100%);
+  margin:0; padding:0 18px 60px;
+  line-height:1.9;
+}
+
+/* 見出しジャンプ時に隠れないよう余白 */
+h3.cat{ scroll-margin-top: 90px; }
+
+/* ===== Page Head ===== */
+.page-head{
+  max-width:980px; margin:28px auto 22px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow);
+  padding:var(--space-6) var(--space-6) var(--space-5);
+}
+.page-head h1{
+  margin:0 0 10px;
+  font-size:clamp(22px, 3.2vw, 30px);
+  letter-spacing:.02em;
+  color:var(--brand-green);
+}
+.page-head .lead{
+  margin:0 0 var(--space-4);
+  color:var(--text);
+  font-size:clamp(14px, 2.2vw, 16px);
+}
+.policy{
+  background: #f0f7f3;
+  border:1px solid #d9eee2;
+  border-radius:var(--radius);
+  padding:var(--space-4) var(--space-5);
+}
+.policy strong{color:#0d7a4f}
+
+/* ===== TOC（大項目のみ） ===== */
+.toc{
+  max-width:980px; margin:16px auto 0;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:16px 18px;
+}
+.toc .toc-title{
+  margin:0 0 6px;
+  font-weight:800;
+  font-size:15px;
+  color:#0c4330;
+  display:flex; align-items:center; gap:8px;
+}
+.toc .toc-title::before{
+  content:"📑";
+  font-size:16px; line-height:1;
+}
+.toc ul{margin:0; padding-left:18px}
+.toc a{
+  text-decoration:none;
+  color:#0d7a4f;
+  border-bottom:1px dashed rgba(13,122,79,.25);
+}
+.toc a:hover{border-bottom-color: rgba(13,122,79,.6)}
+
+/* ===== Section Title ===== */
+h3.cat{
+  max-width:980px; margin:38px auto 12px;
+  font-size:clamp(16px, 2.4vw, 18px);
+  color:#0d7a4f;
+  background:linear-gradient(90deg, rgba(0,152,68,.12), rgba(0,152,68,0));
+  border:1px solid #cfeada;
+  border-left:6px solid var(--brand-green);
+  padding:10px 14px;
+  border-radius:12px;
+}
+
+/* ===== FAQ (details / summary) ===== */
+details{
+  max-width:980px; margin:12px auto;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+summary{
+  list-style:none;
+  cursor:pointer;
+  padding:16px 18px;
+  font-weight:600;
+  color:#0c4330;
+  position:relative;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"＋";
+  position:absolute; right:16px; top:50%; transform:translateY(-50%);
+  font-weight:700; color:var(--brand-green);
+}
+details[open] summary::after{content:"－"}
+
+summary:hover{
+  background:rgba(0,152,68,.06);
+}
+
+/* Answer block */
+p.a{
+  margin:0; padding:14px 18px 18px;
+  border-top:1px dashed #dfe9f1;
+  color:var(--text);
+  font-size:15.5px;
+}
+p.a strong{color:#0d7a4f}
+
+.muted{color:var(--text-weak)}
+
+/* ===== Chips (badges) ===== */
+.chip{
+  display:inline-block;
+  margin:0 0 16px 18px;
+  padding:6px 10px;
+  font-weight:700;
+  font-size:13px;
+  border-radius:999px;
+  background:var(--chip-bg);
+  color:var(--chip-ink);
+  border:1px solid #cfeada;
+}
+.chip[data-variant="warn"]{
+  background:var(--chip-pink-bg);
+  color:#7d1a0e;
+  border-color:#ffd1cf;
+}
+
+/* ===== Responsive tweaks ===== */
+@media (max-width:560px){
+  body{padding:0 12px 48px}
+  .page-head{padding:22px 16px}
+  p.a{padding:12px 14px 16px; font-size:15px}
+  summary{padding:14px 14px}
+  .chip{margin-left:14px}
+}
+</style>
+</head>
+
+<body>
+<!-- ヘッダー -->
+<div class="page-head">
+  <h1>ご利用に関するFAQ（公式）</h1>
+  <p class="lead">
+    本園は、利用日程の決定や物品購入、その他保護者様との契約に関わるご相談について管理者が一括して調整しています。<br>
+    現場職員では即答が難しく、伝達ミスの原因となる場合があります。<br>
+    まずはこちらのFAQをご確認のうえ、記載の<strong>窓口（保護者LINEなど）</strong>へ直接ご連絡ください。
+  </p>
+
+  <div class="policy">
+    <p><strong>運用方針</strong><br>
+      当園は企業主導型保育事業として、<strong>一般財団法人 児童育成協会</strong>の監修のもと運営しています。<br>
+      保育所保育指針に準拠しつつ、認可保育園とは異なる基準・枠組みを有するため、利用条件にも独自の点があります。<br><br>
+      本園の利用日程の決定にあたっては、実施団体からの通達や保護者様の就労状況等を総合的に考慮します。<br>
+      そのうえで最も重視しているのは、お子さまが福祉的に安定した状態であるかどうかです。その根幹には「家庭での保育を第一に」という姿勢があります。<br>
+      通常利用・一時預かり保育のいずれも、週や月単位での利用日数を管理し、お子さまが安心して過ごせる環境を整えています。<br><br>
+      現場職員での判断が難しい事項については、本ページで園としての統一見解を示しました。<br>
+      大切なお子さまのかけがえのない時期をお預かりできることに感謝し、地域に根差した保育施設として歩みを続けてまいります。<br>
+      今後ともどうぞよろしくお願い申し上げます。<br>
+      ※ご質問が増えた項目や新しいお問い合わせ内容に応じて、随時追加・更新します。</p>
+    </p>
+  </div>
+
+  <!-- ▼ 目次（大項目のみ） -->
+  <nav class="toc" id="toc">
+    <div class="toc-title">ページ内目次</div>
+    <ul id="toc-list"><!-- JSで自動生成 --></ul>
+  </nav>
+  <!-- ▲ 目次 -->
+</div>
+
+<!-- 契約・利用 -->
+<h3 class="cat">契約・利用について</h3>
+
+<details>
+  <summary>開所日・開所時間は？</summary>
+  <p class="a"><strong>365日、7:00〜20:00（13時間）</strong> 開所しています。</p>
+</details>
+
+<details>
+  <summary>利用できる日はどのように決まりますか？</summary>
+  <p class="a"><strong>契約日</strong>のみご利用いただけます。変更が必要な場合は事前にご相談ください。</p>
+</details>
+
+<details>
+  <summary>契約日とは何ですか？</summary>
+  <p class="a">保護者様の就労等によりご家庭での保育ができない日を指し、提出いただいた<strong>就労証明書</strong>等を基に決定します。<br>
+  保護者様のいずれかがお休みの日は契約日には含みません。</p>
+</details>
+
+<details>
+  <summary>シフト勤務の場合の契約日はどうなりますか？</summary>
+  <p class="a">毎月<strong>23日</strong>を<strong>目安</strong>にシフト表をご提出ください。提出内容を基に、<strong>就労日のみ契約日</strong>として設定します。</p>
+  <span class="chip">提出：保護者LINE</span>
+</details>
+
+<details>
+  <summary>月途中の入退所について、差額返金はありますか？</summary>
+  <p class="a">ありません。保育料は<strong>暦月単位</strong>で徴収します。月途中の入退所でも月額をいただきます（<span class="muted">日割り・返金なし</span>）。</p>
+</details>
+
+<details>
+  <summary>週何日まで登園することが可能ですか？</summary>
+  <p class="a">本園の独自規定により、原則として<strong>連続登園日数は5日まで</strong>です。ただし、家庭での保育が著しく困難と管理者が判断した場合は<strong>6日まで</strong>可とします。</p>
+</details>
+
+<details>
+  <summary>契約日以外に保育園を利用する手段はありますか？</summary>
+  <p class="a">「<strong>一時預かり保育</strong>」をご利用いただけます。よって契約日以外でも状況に応じてお預かり可能です。また、契約日に係るお預かりは「<strong>通常保育</strong>」とします。</p>
+</details>
+
+<details>
+  <summary>休みの振替は可能ですか？</summary>
+  <p class="a">原則、契約日以外の利用は一時預かり保育対応となります。<br>
+  ただし<strong>勤務日の入れ替え等の特段の事情</strong>がある場合は、管理者の承認を条件に振替を認めることがあります。</p>
+  <span class="chip">窓口：保護者LINE</span>
+</details>
+
+<details>
+  <summary>決定された利用時間に間に合わない場合はどうしたらいいですか？</summary>
+  <p class="a">原則、10分を超えて登園・降園する恐れがある場合は事前に保育園まで電話でご連絡ください。<br>
+  <strong>予定に合わせた人員配置</strong>を行っているため、職員の勤務時間に影響が出る場合がございます。</p>
+  <span class="chip">窓口：保育園に直接電話</span>
+</details>
+
+<!-- 一時預かり保育 -->
+<h3 class="cat">一時預かり保育について</h3>
+
+<details>
+  <summary>通常利用と一時預かり保育の違いは？</summary>
+  <p class="a"><strong>通常利用：</strong>契約日に基づく、実際の就労日での利用。<br>
+    <strong>一時預かり保育：</strong>就労を伴わない日の利用。</p>
+  <span class="chip">窓口：保護者LINE</span>
+</details>
+
+<details>
+  <summary>一時預かり保育の利用はいつまでに申し込めばいいですか？</summary>
+  <p class="a">随時ご相談ください。<strong>当日の保育安全が担保できる場合に限り</strong>お預かりします（枠状況によりお断りする場合があります）。</p>
+  <span class="chip">窓口：保護者LINE</span>
+</details>
+
+<details>
+  <summary>一時預かり保育の連絡方法は？</summary>
+  <p class="a"><strong>保護者LINE</strong>からご連絡ください。口頭での申し出も可能ですが、<strong>伝達漏れ防止のためLINEを窓口</strong>としています。</p>
+  <span class="chip">窓口：保護者LINE</span>
+</details>
+
+<details>
+  <summary>シフト勤務でも一時預かり保育は可能ですか？</summary>
+  <p class="a">可能です。なお、<strong>連続利用は6日未満（最大5日）</strong>の規定に従います。</p>
+  <span class="chip">窓口：保護者LINE</span>
+</details>
+
+<details>
+  <summary>一時預かり保育のキャンセル料は？</summary>
+  <p class="a"><strong>前日20:00（閉園）まで：無料</strong>／<strong>当日：200円</strong>。保育料に加算して口座引き落としとなります。</p>
+</details>
+
+<details>
+  <summary>一時預かり保育の時間変更は可能ですか？</summary>
+  <p class="a">可能です。ただし、当日の体制次第でお受けできない場合があります（安全最優先）。</p>
+  <span class="chip">窓口：保護者LINE</span>
+</details>
+
+<details>
+  <summary>一時預かり保育の料金はいくらですか？</summary>
+  <p class="a">在園児は<strong>1時間200円</strong>。在園児に限り、家族支援の観点から<strong>無料時間帯</strong>を設けています。<br>
+  外部児は<strong>1時間500円</strong>です。</p>
+</details>
+
+<details>
+  <summary>無料時間帯は何時から何時までですか？</summary>
+  <p class="a">在園児における無料時間帯は<strong>9:15～15:00</strong>です。</p>
+</details>
+
+<details>
+  <summary>利用時間の起算はいつですか？</summary>
+  <p class="a">登園時に端末で登園処理を行っていただきます。<strong>登降園処理を行ったiPadに表記されている時刻</strong>を基準に、打刻時刻を0分として起算します。</p>
+</details>
+
+<details>
+  <summary>無料時間帯より早く登園・遅く降園した場合は料金がかかりますか？</summary>
+  <p class="a">はい。<strong>1分でも早い登園・遅い降園</strong>は料金徴収の対象です。判断は<strong>登降園処理を行ったiPadに表記されている時刻</strong>に従います。</p>
+</details>
+
+<details>
+  <summary>1分超過でも1時間分の料金になりますか？</summary>
+  <p class="a">原則として、<strong>1分を超えた場合は1時間利用</strong>したとみなして徴収します。<br>
+  例：無料時間帯を超えた有料対象部分の利用が「2時間1分」の場合、徴収額は<strong>400円</strong>（在園児：200円×2時間分）です。</p>
+</details>
+
+<details>
+  <summary>支払い方法は？</summary>
+  <p class="a">原則、お迎え時に現金でお支払いください。<br>
+  遡って料金対象であることが判明した場合は、翌登園日にお知らせのうえ、当日のお迎え時に徴収します。事情により現金徴収が難しいと管理者が判断した場合は、<strong>翌保育料引き落とし日に加算</strong>して徴収します。</p>
+</details>
+
+<!-- 健康・食事 -->
+<h3 class="cat">健康・食事について</h3>
+
+<details>
+  <summary>未摂取の食材であったものを新たに摂取した場合は誰に連絡したらよいですか？</summary>
+  <p class="a">連絡帳への記入、または登降園時に口頭でお知らせください。毎月末に返却する<strong>食材摂取表</strong>にもご記入ください。</p>
+</details>
+
+<details>
+  <summary>夜食の申込み・キャンセル・当日扱い</summary>
+  <p class="a">
+    <strong>申込み：</strong>在庫確認のため、<strong>保護者LINE</strong>でお早めにご連絡ください。可否をご案内します。<br>
+    <strong>給食費・キャンセル料：</strong>当日<strong>500円</strong>（保育料に加算して徴収）。<br>
+    <strong>当日の起算：</strong><strong>前日20:00（閉園）を過ぎると当日扱い</strong>です。
+  </p>
+  <span class="chip">窓口：保護者LINE</span>
+</details>
+
+<!-- 物品 -->
+<h3 class="cat">物品購入・物品相談について</h3>
+
+<details>
+  <summary>物品の購入や補充は誰に連絡すればよいですか？</summary>
+  <p class="a"><strong>保護者LINE</strong>からご連絡ください（申込み窓口）。</p>
+  <span class="chip">窓口：保護者LINE</span>
+</details>
+
+<details>
+  <summary>物品の選び方や買い替え時期を知りたい</summary>
+  <p class="a">実際の使用状況や他ご家庭の事例は、<strong>保育職員へご相談</strong>ください。<br>購入の申込みは<strong>保護者LINE</strong>で承ります。</p>
+  <span class="chip">相談：保育職員</span><span class="chip">申込み：保護者LINE</span>
+</details>
+
+<!-- 産前産後・育休 -->
+<h3 class="cat">産前産後休業・育休休業中の利用について</h3>
+
+<details>
+  <summary>産前産後・育児休業中の利用は変わりますか？</summary>
+  <p class="a">
+    原則、休業中は家庭での保育が可能と判断しお預かりしません。<br>
+    ただし当園独自規定により、次の範囲で一部利用を認めます：<br>
+    ・<strong>産前休業</strong>：出産日当日まで <strong>9:00〜15:30</strong><br>
+    ・<strong>産後休業</strong>：出産翌日から、6～8週までの間は<strong>配偶者の就労証明</strong>に基づく時間（シフト勤務は<strong>提出シフト</strong>による）<br>
+　　　　　　※送迎者が配偶者以外の場合や、配偶者も育児休業を開始した場合は保護者LINEまでご相談ください<br>
+    ・<strong>育児休業</strong>：<strong>9:00〜15:30</strong>
+  </p>
+  <p class="a">産前の終了日・産後の開始日は医療的にも予測が難しいため、<strong>落ち着かれた時点で現状をご報告ください</strong>。そのご報告をもって、当園で正式に日付を定めます。</p>
+  <span class="chip">窓口：保護者LINE</span>
+</details>
+
+<details>
+  <summary>産前産後・育休期間中の一時預かり保育は可能ですか？</summary>
+  <p class="a">原則できません。<strong>特段の事情</strong>がある場合は個別にご相談ください。</p>
+  <span class="chip">窓口：保護者LINE</span>
+</details>
+
+<!-- 連絡手段 -->
+<h3 class="cat">保護者LINEの運用時間について</h3>
+
+<details>
+  <summary>保護者LINEの対応時間は？</summary>
+  <p class="a">確認は管理者が可能な時間に行い、<strong>返信は原則 7:00〜20:00（開所時間内）</strong>に行います。緊急性が高い場合は、確認次第こちらからご連絡します。</p>
+  <span class="chip">窓口：保護者LINE</span>
+</details>
+
+<!-- ===== TOC Auto Builder（大項目のみ） ===== -->
+<script>
+(function(){
+  const tocList = document.getElementById('toc-list');
+  if(!tocList) return;
+
+  const cats = document.querySelectorAll('h3.cat');
+  cats.forEach((cat, idx) => {
+    // ID未設定なら自動付与（sec-1, sec-2...）
+    if(!cat.id){
+      cat.id = 'sec-' + (idx+1);
+    }
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '#' + cat.id;
+    a.textContent = cat.textContent.trim();
+    li.appendChild(a);
+    tocList.appendChild(li);
+  });
+})();
+</script>
+</body>
+</html>
